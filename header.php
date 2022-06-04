@@ -19,7 +19,7 @@
     <body>
         <nav>
             <div class="header">
-                <a class="logo">Bugtracker</a>
+                <a class="logo">To-Do List</a>
                 <div class="header-right">
                     <a class="active" href="yep.php">Home</a>
                     <a href="#contact">Contact</a>

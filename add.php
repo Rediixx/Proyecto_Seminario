@@ -50,152 +50,85 @@
                     <div class="table-title">
                         <div class="row">
                             <div class="col-sm-6">
-                                <h2>Lista <b>Bugs</b></h2>
+                                <h2>Lista <b>Actividades</b></h2>
                             </div>
                             <div class="col-sm-6">
-                                <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Agregar Bug</span></a>
-                                <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Eliminar</span></a>						
+                                <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Agregar Actividad</span></a>						
                             </div>
                         </div>
                     </div>
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>
-                                    <span class="custom-checkbox">
-                                        <input type="checkbox" id="selectAll">
-                                        <label for="selectAll"></label>
-                                    </span>
-                                </th>
-                                <th>Owner</th>
-                                <th>Status</th>
-                                <th>Description</th>
-                                <th>Date</th>
-                                <th>Actions</th>
+                                <th>Usuario</th>
+                                <th>Estatus</th>
+                                <th>Descripcion</th>
+                                <th>Fecha</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
+
                         <tbody>
-                            <tr>
-                                <td>
-                                    <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                        <label for="checkbox1"></label>
-                                    </span>
-                                </td>
-                                <td>Thomas Hardy</td>
-                                <td>thomashardy@mail.com</td>
-                                <td>89 Chiaroscuro Rd, Portland, USA</td>
-                                <td>(171) 555-2222</td>
-                                <td>
-                                    <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                    <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox2" name="options[]" value="1">
-                                        <label for="checkbox2"></label>
-                                    </span>
-                                </td>
-                                <td>Dominique Perrier</td>
-                                <td>dominiqueperrier@mail.com</td>
-                                <td>Obere Str. 57, Berlin, Germany</td>
-                                <td>(313) 555-5735</td>
-                                <td>
-                                    <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                    <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox3" name="options[]" value="1">
-                                        <label for="checkbox3"></label>
-                                    </span>
-                                </td>
-                                <td>Maria Anders</td>
-                                <td>mariaanders@mail.com</td>
-                                <td>25, rue Lauriston, Paris, France</td>
-                                <td>(503) 555-9931</td>
-                                <td>
-                                    <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                    <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox4" name="options[]" value="1">
-                                        <label for="checkbox4"></label>
-                                    </span>
-                                </td>
-                                <td>Fran Wilson</td>
-                                <td>franwilson@mail.com</td>
-                                <td>C/ Araquil, 67, Madrid, Spain</td>
-                                <td>(204) 619-5731</td>
-                                <td>
-                                    <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                    <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                </td>
-                            </tr>					
-                            <tr>
-                                <td>
-                                    <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox5" name="options[]" value="1">
-                                        <label for="checkbox5"></label>
-                                    </span>
-                                </td>
-                                <td>Martin Blank</td>
-                                <td>martinblank@mail.com</td>
-                                <td>Via Monte Bianco 34, Turin, Italy</td>
-                                <td>(480) 631-2097</td>
-                                <td>
-                                    <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                    <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                </td>
-                            </tr> 
+                        <?php
+                            $serverName = "localhost";
+                            $dBUsername = "root";
+                            $dBPassword = "";
+                            $dBName = "bugtracker";
+                            $conn = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);
+                            if (!$conn) {
+                                die("Connection failed: " . mysqli_connect_error());
+                            }
+
+                            $sql = "SELECT * FROM bugs";
+                            $result = $conn->query($sql);
+
+                            if (!$result) {
+                                die("Invalid query : " . $conn->error);
+                            }
+
+                            while ($row = $result->fetch_assoc()) {
+                                echo 
+                                "<tr>
+                                    <td>" . $row["owner"] . "</td>
+                                    <td>" . $row["status"] . "</td>
+                                    <td>" . $row["description"] . "</td>
+                                    <td>" . $row["date"] . "</td>
+                                    <td>
+                                        <a href='#editEmployeeModal' class='edit' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title='Editar'>&#xE254;</i></a>
+                                        <a href='includes/delete.inc.php?id=$row[id]' class='delete'><i class='material-icons' data-toggle='tooltip' title='Eliminar'>&#xE872;</i></a>
+                                    </td>
+                                </tr>";
+                            }
+                        ?>
                         </tbody>
                     </table>
-                    <div class="clearfix">
-                        <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-                        <ul class="pagination">
-                            <li class="page-item disabled"><a href="#">Previous</a></li>
-                            <li class="page-item"><a href="#" class="page-link">1</a></li>
-                            <li class="page-item"><a href="#" class="page-link">2</a></li>
-                            <li class="page-item active"><a href="#" class="page-link">3</a></li>
-                            <li class="page-item"><a href="#" class="page-link">4</a></li>
-                            <li class="page-item"><a href="#" class="page-link">5</a></li>
-                            <li class="page-item"><a href="#" class="page-link">Next</a></li>
-                        </ul>
-                    </div>
                 </div>
             </div>        
         </div>
-        <!-- Edit Modal HTML -->
+        <!-- Add Modal HTML -->
         <div id="addEmployeeModal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <form action="includes/add.inc.php" method="post">
                         <div class="modal-header">						
-                            <h4 class="modal-title">Agregar Bug</h4>
+                            <h4 class="modal-title">Agregar Actividad</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
                         <div class="modal-body">					
                             <div class="form-group">
-                                <label>Owner</label>
+                                <label>Usuario</label>
                                 <input type="text" name="owner" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label>Status</label>
+                                <label>Estatus</label>
                                 <input type="number" name="status" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label>Description</label>
+                                <label>Descripcion</label>
                                 <textarea class="form-control" name="description" required></textarea>
                             </div>
                             <div class="form-group">
-                                <label>Date</label>
+                                <label>Fecha</label>
                                 <input type="date" name="date" class="form-control" required>
                             </div>					
                         </div>
@@ -246,18 +179,18 @@
         <div id="deleteEmployeeModal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form>
+                    <form action="includes/delete.inc.php" method="post">
                         <div class="modal-header">						
-                            <h4 class="modal-title">Delete Employee</h4>
+                            <h4 class="modal-title">Eliminar Actividad</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
                         <div class="modal-body">					
-                            <p>Are you sure you want to delete these Records?</p>
-                            <p class="text-warning"><small>This action cannot be undone.</small></p>
+                            <p>Esta seguro que desea eliminar esta actividad?</p>
+                            <p class="text-warning"><small>Esta accion no puede ser revertida.</small></p>
                         </div>
-                        <div class="modal-footer">
-                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                            <input type="submit" class="btn btn-danger" value="Delete">
+                        <div class="modal-footer">       
+                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+                            <input type="submit" name="delete" class="btn btn-danger" value="Eliminar">
                         </div>
                     </form>
                 </div>

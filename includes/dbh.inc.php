@@ -3,7 +3,7 @@
 $serverName = "localhost";
 $dBUsername = "root";
 $dBPassword = "";
-$dBName = "todolist";
+$dBName = "bugtracker";
 
 $conn = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);
 
