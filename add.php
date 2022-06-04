@@ -87,17 +87,31 @@
                             }
 
                             while ($row = $result->fetch_assoc()) {
-                                echo 
-                                "<tr>
-                                    <td>" . $row["owner"] . "</td>
-                                    <td>" . $row["status"] . "</td>
-                                    <td>" . $row["description"] . "</td>
-                                    <td>" . $row["date"] . "</td>
-                                    <td>
-                                        <a href='#editEmployeeModal' class='edit' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title='Editar'>&#xE254;</i></a>
-                                        <a href='includes/delete.inc.php?id=$row[id]' class='delete'><i class='material-icons' data-toggle='tooltip' title='Eliminar'>&#xE872;</i></a>
-                                    </td>
-                                </tr>";
+                                if ($_SESSION["username"] == $row["owner"]) {
+                                    echo 
+                                    "<tr>
+                                        <td>" . $row["owner"] . "</td>
+                                        <td>" . $row["status"] . "</td>
+                                        <td>" . $row["description"] . "</td>
+                                        <td>" . $row["date"] . "</td>
+                                        <td>
+                                            <a href='#editEmployeeModal' class='edit' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title='Editar'>&#xE254;</i></a>
+                                            <a href='includes/delete.inc.php?id=$row[id]' class='delete'><i class='material-icons' data-toggle='tooltip' title='Eliminar'>&#xE872;</i></a>
+                                        </td>
+                                    </tr>";
+                                } else {
+                                    echo 
+                                    "<tr>
+                                        <td>" . $row["owner"] . "</td>
+                                        <td>" . $row["status"] . "</td>
+                                        <td>" . $row["description"] . "</td>
+                                        <td>" . $row["date"] . "</td>
+                                        <td>
+                                            <a href='#editEmployeeModal' style='pointer-events: none; cursor: default;'><i class='material-icons' title='Editar'>&#xE254;</i></a>
+                                            <a href='includes/delete.inc.php?id=$row[id]' style='pointer-events: none; cursor: default;'><i class='material-icons' title='Eliminar'>&#xE872;</i></a>
+                                        </td>
+                                    </tr>";
+                                }
                             }
                         ?>
                         </tbody>
