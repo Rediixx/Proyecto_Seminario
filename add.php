@@ -117,7 +117,7 @@
                         <div class="modal-body">					
                             <div class="form-group">
                                 <label>Usuario</label>
-                                <input type="text" name="owner" class="form-control" required>
+                                <input type="text" value="<?php echo $_SESSION["username"]; ?>" name="owner" class="form-control" required readonly>
                             </div>
                             <div class="form-group">
                                 <label>Estatus</label>
