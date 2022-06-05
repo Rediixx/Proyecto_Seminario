@@ -53,7 +53,8 @@
                                 <h2>Lista <b>Actividades</b></h2>
                             </div>
                             <div class="col-sm-6">
-                                <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Agregar Actividad</span></a>						
+                                <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Agregar Actividad</span></a>
+                                <a href=pomodoro.php class="btn btn-warning" style= color:black;><i class="material-icons">&#xE037;</i><span>Iniciar pomodoro</span></a>					
                             </div>
                         </div>
                     </div>
@@ -90,6 +91,7 @@
                                 if ($row["owner"] == $_SESSION["username"]) {
                                     echo 
                                     "<tr>
+                                        <td style='display:none;''>" . $row["id"] . "</td>
                                         <td>" . $row["owner"] . "</td>
                                         <td>" . $row["status"] . "</td>
                                         <td>" . $row["description"] . "</td>
@@ -146,27 +148,27 @@
         <div id="editEmployeeModal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form>
+                    <form action="includes/update.inc.php?id=$row['id']" method="POST">
                         <div class="modal-header">						
                             <h4 class="modal-title">Edit Employee</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
                         <div class="modal-body">					
                             <div class="form-group">
-                                <label>Name</label>
-                                <input type="text" class="form-control" required>
+                                <label>Usuario</label>
+                                <input type="text" value="<?php echo $_SESSION["username"]; ?>" name="owner" class="form-control" required readonly>
                             </div>
                             <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" class="form-control" required>
+                                <label>Estatus</label>
+                                <input type="number" name="status" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label>Address</label>
-                                <textarea class="form-control" required></textarea>
+                                <label>Descripcion</label>
+                                <textarea class="form-control" name="description" required></textarea>
                             </div>
                             <div class="form-group">
-                                <label>Phone</label>
-                                <input type="text" class="form-control" required>
+                                <label>Fecha</label>
+                                <input type="date" name="date" class="form-control" required>
                             </div>					
                         </div>
                         <div class="modal-footer">
