@@ -29,9 +29,9 @@
     </figure>
 
     <div class="btn-group">
-      <button class="start">comenzar</button>
-      <button class="reset">reiniciar</button>
-      <button class="pause">pausar</button>
+      <button class="start">Comenzar</button>
+      <button class="reset">Reiniciar</button>
+      <button class="pause">Pausar</button>
     </div>
 
     <form action=".">
