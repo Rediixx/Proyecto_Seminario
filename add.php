@@ -88,19 +88,34 @@
                             }
 
                             while ($row = $result->fetch_assoc()) {
-                                if ($row["owner"] == $_SESSION["username"]) {
+                                if ($_SESSION["username"] == "admin") {
                                     echo 
-                                    "<tr>
-                                        <td style='display:none;''>" . $row["id"] . "</td>
-                                        <td>" . $row["owner"] . "</td>
-                                        <td>" . $row["status"] . "</td>
-                                        <td>" . $row["description"] . "</td>
-                                        <td>" . $row["date"] . "</td>
-                                        <td>
-                                            <a href='#editEmployeeModal' class='edit' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title='Editar'>&#xE254;</i></a>
-                                            <a href='includes/delete.inc.php?id=$row[id]' class='delete'><i class='material-icons' data-toggle='tooltip' title='Eliminar'>&#xE872;</i></a>
-                                        </td>
-                                    </tr>";
+                                        "<tr>
+                                            <td style='display:none;''>" . $row["id"] . "</td>
+                                            <td>" . $row["owner"] . "</td>
+                                            <td>" . $row["status"] . "</td>
+                                            <td>" . $row["description"] . "</td>
+                                            <td>" . $row["date"] . "</td>
+                                            <td>
+                                                <a href='#editEmployeeModal' class='edit' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title='Editar'>&#xE254;</i></a>
+                                                <a href='includes/delete.inc.php?id=$row[id]' class='delete'><i class='material-icons' data-toggle='tooltip' title='Eliminar'>&#xE872;</i></a>
+                                            </td>
+                                        </tr>";
+                                } else {
+                                    if ($row["owner"] == $_SESSION["username"]) {
+                                        echo 
+                                        "<tr>
+                                            <td style='display:none;''>" . $row["id"] . "</td>
+                                            <td>" . $row["owner"] . "</td>
+                                            <td>" . $row["status"] . "</td>
+                                            <td>" . $row["description"] . "</td>
+                                            <td>" . $row["date"] . "</td>
+                                            <td>
+                                                <a href='#editEmployeeModal' class='edit' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title='Editar'>&#xE254;</i></a>
+                                                <a href='includes/delete.inc.php?id=$row[id]' class='delete'><i class='material-icons' data-toggle='tooltip' title='Eliminar'>&#xE872;</i></a>
+                                            </td>
+                                        </tr>";
+                                    }
                                 }
                             }
                         ?>
