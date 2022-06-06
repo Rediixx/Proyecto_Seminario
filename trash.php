@@ -53,9 +53,9 @@
                                 <h2>Lista <b>Actividades</b></h2>
                             </div>
                             <div class="col-sm-6">
-                                <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Agregar Actividad</span></a>
-                                <a href=pomodoro.php class="btn btn-warning" style= color:black;><i class="material-icons">&#xE037;</i><span>Iniciar pomodoro</span></a>
-                                <a href=trash.php class="btn btn-danger" style= color:black;><i class="material-icons">&#xE872;</i><span>Completados</span></a>						
+                                <!--<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Agregar Actividad</span></a>
+                                <a href=pomodoro.php class="btn btn-warning" style= color:black;><i class="material-icons">&#xE037;</i><span>Iniciar pomodoro</span></a>-->
+                                <a href=add.php class="btn btn-info" style= color:black;><i class="material-icons">&#xE863;</i><span>En curso</span></a>						
                             </div>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                                 die("Connection failed: " . mysqli_connect_error());
                             }
 
-                            $sql = "SELECT * FROM bugs";
+                            $sql = "SELECT * FROM trash";
                             $result = $conn->query($sql);
 
                             if (!$result) {
