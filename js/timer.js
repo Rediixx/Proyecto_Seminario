@@ -55,6 +55,7 @@ function decremenT() {
       startBtn.textContent = "start focus";
       localStorage.setItem("btn", "focus");
     }
+    
     startBtn.style.transform = "scale(1)";
   }
 }
