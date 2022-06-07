@@ -10,6 +10,7 @@ localStorage.setItem("btn", "focus");
 let initial, totalsecs, perc, paused, mins, seconds;
 
 startBtn.addEventListener("click", () => {
+
   let btn = localStorage.getItem("btn");
 
   if (btn === "focus") {
@@ -23,9 +24,11 @@ startBtn.addEventListener("click", () => {
   setTimeout(decremenT(), 60);
   startBtn.style.transform = "scale(0)";
   paused = false;
+  
 });
 
 function decremenT() {
+
   mindiv.textContent = Math.floor(seconds / 60);
   secdiv.textContent = seconds % 60 > 9 ? seconds % 60 : `0${seconds % 60}`;
   if (circle.classList.contains("danger")) {
@@ -58,4 +61,5 @@ function decremenT() {
     
     startBtn.style.transform = "scale(1)";
   }
+
 }
