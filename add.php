@@ -65,7 +65,7 @@
                                 <th>Usuario</th>
                                 <th>Estatus</th>
                                 <th>Descripcion</th>
-                                <th>Fecha</th>
+                                <th>Fecha Limite</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>

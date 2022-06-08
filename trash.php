@@ -65,7 +65,7 @@
                                 <th>Usuario</th>
                                 <th>Estatus</th>
                                 <th>Descripcion</th>
-                                <th>Fecha</th>
+                                <th>Fecha Limite</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -94,7 +94,11 @@
                                         "<tr>
                                             <td style='display:none;''>" . $row["id"] . "</td>
                                             <td>" . $row["owner"] . "</td>
-                                            <td>" . $row["status"] . "</td>
+                                            <td>
+                                                <div class='progress' style='height: 5px;'>
+                                                    <div class='progress-bar' role='progressbar' style='width: $row[status]%;' aria-valuenow='$row[status]' aria-valuemin='0' aria-valuemax='100'></div>
+                                                </div>
+                                            </td>
                                             <td>" . $row["description"] . "</td>
                                             <td>" . $row["date"] . "</td>
                                             <td>
@@ -108,7 +112,11 @@
                                         "<tr>
                                             <td style='display:none;''>" . $row["id"] . "</td>
                                             <td>" . $row["owner"] . "</td>
-                                            <td>" . $row["status"] . "</td>
+                                            <td>
+                                                <div class='progress' style='height: 5px;'>
+                                                    <div class='progress-bar' role='progressbar' style='width: $row[status]%;' aria-valuenow='$row[status]' aria-valuemin='0' aria-valuemax='100'></div>
+                                                </div>
+                                            </td>
                                             <td>" . $row["description"] . "</td>
                                             <td>" . $row["date"] . "</td>
                                             <td>
