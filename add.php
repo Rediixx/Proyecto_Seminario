@@ -94,7 +94,11 @@
                                         "<tr>
                                             <td style='display:none;''>" . $row["id"] . "</td>
                                             <td>" . $row["owner"] . "</td>
-                                            <td>" . $row["status"] . "</td>
+                                            <td>
+                                                <div class='progress' style='height: 5px;'>
+                                                    <div class='progress-bar' role='progressbar' style='width: $row[status]%;' aria-valuenow='$row[status]' aria-valuemin='0' aria-valuemax='100'></div>
+                                                </div>
+                                            </td>
                                             <td>" . $row["description"] . "</td>
                                             <td>" . $row["date"] . "</td>
                                             <td>
@@ -108,10 +112,15 @@
                                         "<tr>
                                             <td style='display:none;''>" . $row["id"] . "</td>
                                             <td>" . $row["owner"] . "</td>
-                                            <td>" . $row["status"] . "</td>
+                                            <td>
+                                                <div class='progress' style='height: 5px;'>
+                                                    <div class='progress-bar' role='progressbar' style='width: $row[status]%;' aria-valuenow='$row[status]' aria-valuemin='0' aria-valuemax='100'></div>
+                                                </div>
+                                            </td>
                                             <td>" . $row["description"] . "</td>
                                             <td>" . $row["date"] . "</td>
                                             <td>
+                                                <a href=pomodoro.php class='info'><i class='material-icons' data-toggle='tooltip' title='Iniciar pomodoro'>&#xE037;</i></a>
                                                 <a href='#editEmployeeModal' class='edit' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title='Editar'>&#xE254;</i></a>
                                                 <a href='includes/delete.inc.php?id=$row[id]' class='delete'><i class='material-icons' data-toggle='tooltip' title='Eliminar'>&#xE872;</i></a>
                                             </td>
