@@ -100,7 +100,7 @@
                                                     <div class='progress-bar' role='progressbar' style='width: $row[status]%;' aria-valuenow='$row[status]' aria-valuemin='0' aria-valuemax='100'></div>
                                                 </div>
                                             </td>
-                                            <td>" . $row["estimatedHours"] . "</td>
+                                            <td>" . ceil($row["estimatedHours"]/3600) . "</td>
                                             <td>" . $row["description"] . "</td>
                                             <td>" . $row["date"] . "</td>
                                             <td>
@@ -120,7 +120,7 @@
                                                     <div class='progress-bar' role='progressbar' style='width: $row[status]%;' aria-valuenow='$row[status]' aria-valuemin='0' aria-valuemax='100'></div>
                                                 </div>
                                             </td>
-                                            <td>" . $row["estimatedHours"] . "</td>
+                                            <td>" . ceil($row["estimatedHours"]/3600) . "</td>
                                             <td>" . $row["description"] . "</td>
                                             <td>" . $row["date"] . "</td>
                                             <td>

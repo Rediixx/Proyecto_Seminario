@@ -96,7 +96,7 @@ function createUser($conn, $name, $email, $username, $pwd) {
 }
 
 function createBug($conn, $owner, $status, $description, $date, $estimatedHours) {
-    $sql = "INSERT INTO bugs (Owner, Status, Description, Date, EstimatedHours) VALUES (?, ?, ?, ?, ?);";
+    $sql = "INSERT INTO bugs (Owner, Status, Description, Date, EstimatedHours) VALUES (?, ?, ?, ?, ? * 3600);";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../add.php?error=stmtfailed");

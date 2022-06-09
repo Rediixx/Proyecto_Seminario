@@ -54,7 +54,7 @@
       const startBtn2 = document.querySelector(".start");
 
       startBtn2.addEventListener("click", () => {
-        var estimatedHours = localStorage.getItem("focusTime");
+        var estimatedHours = localStorage.getItem("focusTime") * 60;
         UpdateRecord(id, estimatedHours);
       });
 
