@@ -54,7 +54,6 @@
                             </div>
                             <div class="col-sm-6">
                                 <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Agregar Actividad</span></a>
-                                <a href=pomodoro.php class="btn btn-warning" style= color:black;><i class="material-icons">&#xE037;</i><span>Iniciar pomodoro</span></a>
                                 <a href=trash.php class="btn btn-info" style= color:black;><i class="material-icons">&#xE5CA;</i><span>Completados</span></a>						
                             </div>
                         </div>
