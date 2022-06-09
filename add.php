@@ -190,7 +190,6 @@
                         $('#estimatedHours').val(data[3]);
                         $('#description').val(data[4]);
                         $('#date').val(data[5]);
-                        console.log((data[0]));
                 });
             });
         </script>
