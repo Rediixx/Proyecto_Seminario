@@ -124,7 +124,7 @@
                                             <td>" . $row["date"] . "</td>
                                             <td>
                                                 <a href='pomodoro.php?id=$row[id]' class='info'><i class='material-icons' data-toggle='tooltip' title='Iniciar pomodoro'>&#xE037;</i></a>
-                                                <a href='#editEmployeeModal' class='edit' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title='Editar'>&#xE254;</i></a>
+                                                <a href='#editEmployeeModal' class='edit editbtn' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title='Editar'>&#xE254;</i></a>
                                                 <a href='includes/delete.inc.php?id=$row[id]' class='delete'><i class='material-icons' data-toggle='tooltip' title='Eliminar'>&#xE872;</i></a>
                                             </td>
                                         </tr>";
@@ -173,35 +173,59 @@
             </div>
         </div>
         <!-- Edit Modal HTML -->
+        <script>
+            $(document).ready(function () {
+                $('.editbtn').on('click', function() {
+                    $('#editEmployeeModal').modal('show');
+
+                        $tr = $(this).closest('tr');
+
+                        var data = $tr.children("td").map(function () {
+                            return $(this).text();
+                        }).get();
+
+                        console.log(data);
+
+                        $('#update_id').val(data[0]);
+                        $('#estimatedHours').val(data[3]);
+                        $('#description').val(data[4]);
+                        $('#date').val(data[5]);
+                        console.log((data[0]));
+                });
+            });
+        </script>
         <div id="editEmployeeModal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form action="includes/update.inc.php?id=$row['id']" method="POST">
+                    <form action="includes/update.inc.php" method="post">
                         <div class="modal-header">						
                             <h4 class="modal-title">Edit Employee</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
+
+                        <input type="hidden" name="update_id" id="update_id">
+
                         <div class="modal-body">					
                             <div class="form-group">
                                 <label>Usuario</label>
-                                <input type="text" value="<?php echo $_SESSION["username"]; ?>" name="owner" class="form-control" required readonly>
+                                <input type="text" value="<?php echo $_SESSION["username"]; ?>" name="owner" id="owner" class="form-control" required readonly>
                             </div>
                             <div class="form-group">
-                                <label>Estatus</label>
-                                <input type="number" name="status" class="form-control" required>
+                                <label>Horas Estimadas</label>
+                                <input type="number" name="estimatedHours" id="estimatedHours" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label>Descripcion</label>
-                                <textarea class="form-control" name="description" required></textarea>
+                                <textarea class="form-control" name="description" id="description" required></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Fecha</label>
-                                <input type="date" name="date" class="form-control" required>
+                                <input type="date" name="date" id="date" class="form-control" required>
                             </div>					
                         </div>
                         <div class="modal-footer">
                             <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                            <input type="submit" class="btn btn-info" value="Save">
+                            <input type="submit" name="submit" class="btn btn-info" value="Save">
                         </div>
                     </form>
                 </div>
