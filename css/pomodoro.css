@@ -77,6 +77,9 @@ form button {
 .pause {
   background: rgb(253, 143, 17);
 }
+.return {
+  background: rgb(10, 111, 129);
+}
 .resume {
   background: rgb(131, 10, 252);
   color: white;

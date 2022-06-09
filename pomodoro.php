@@ -33,6 +33,7 @@
       <button class="start">Comenzar</button>
       <button class="reset">Reiniciar</button>
       <button class="pause">Pausar</button>
+      <button class="return" onclick="window.location.href='add.php';">Regresar</button>
     </div>
 
     <form action=".">
