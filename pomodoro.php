@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pomodoro</title>
     <link rel="stylesheet" href="css/pomodoro.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
   <body>
     <h1>Pomodro ⏲ con 🛎</h1>
@@ -45,5 +46,30 @@
     <script src="js/settings.js"></script>
     <script src="js/timer.js"></script>
     <script src="js/progress.js"></script>
+
+    <script>
+      var url = document.URL;
+      var id = url.substring(url.lastIndexOf('=') + 1);
+
+      const startBtn2 = document.querySelector(".start");
+
+      startBtn2.addEventListener("click", () => {
+        var estimatedHours = localStorage.getItem("focusTime");
+        UpdateRecord(id, estimatedHours);
+      });
+
+      function UpdateRecord(id, estimatedHours)
+      {
+          jQuery.ajax({
+          type: "POST",
+          url: "includes/updateTime.php",
+          data: {
+            id: id,
+            estimatedHours: estimatedHours
+          },
+          cache: false,
+        });
+      }
+    </script>
   </body>
 </html>

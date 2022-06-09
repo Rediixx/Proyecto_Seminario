@@ -95,15 +95,15 @@ function createUser($conn, $name, $email, $username, $pwd) {
     header("location: ../signup.php?error=none");
 }
 
-function createBug($conn, $owner, $status, $description, $date) {
-    $sql = "INSERT INTO bugs (Owner, Status, Description, Date) VALUES (?, ?, ?, ?);";
+function createBug($conn, $owner, $status, $description, $date, $estimatedHours) {
+    $sql = "INSERT INTO bugs (Owner, Status, Description, Date, EstimatedHours) VALUES (?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../add.php?error=stmtfailed");
         exit();
     }
 
-    mysqli_stmt_bind_param($stmt, "siss", $owner, $status, $description, $date);
+    mysqli_stmt_bind_param($stmt, "sissi", $owner, $status, $description, $date, $estimatedHours);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     header("location: ../add.php?error=none");
@@ -156,4 +156,17 @@ function deleteRecord($conn, $id) {
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     header("location: ../add.php?error=none");
+}
+
+function updateHour($conn, $id, $estimatedHours) {
+    $sql = "UPDATE bugs SET estimatedHours = estimatedHours - ? WHERE id = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../pomodoro.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "ii", $estimatedHours, $id);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
 }

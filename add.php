@@ -64,6 +64,7 @@
                             <tr>
                                 <th>Usuario</th>
                                 <th>Estatus</th>
+                                <th>Horas Estimadas</th>
                                 <th>Descripcion</th>
                                 <th>Fecha Limite</th>
                                 <th>Acciones</th>
@@ -99,10 +100,11 @@
                                                     <div class='progress-bar' role='progressbar' style='width: $row[status]%;' aria-valuenow='$row[status]' aria-valuemin='0' aria-valuemax='100'></div>
                                                 </div>
                                             </td>
+                                            <td>" . $row["estimatedHours"] . "</td>
                                             <td>" . $row["description"] . "</td>
                                             <td>" . $row["date"] . "</td>
                                             <td>
-                                                <a href=pomodoro.php class='info'><i class='material-icons' data-toggle='tooltip' title='Iniciar pomodoro'>&#xE037;</i></a>
+                                                <a href='pomodoro.php?id=$row[id]' class='info'><i class='material-icons' data-toggle='tooltip' title='Iniciar pomodoro'>&#xE037;</i></a>
                                                 <a href='#editEmployeeModal' class='edit' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title='Editar'>&#xE254;</i></a>
                                                 <a href='includes/delete.inc.php?id=$row[id]' class='delete'><i class='material-icons' data-toggle='tooltip' title='Eliminar'>&#xE872;</i></a>
                                             </td>
@@ -118,10 +120,11 @@
                                                     <div class='progress-bar' role='progressbar' style='width: $row[status]%;' aria-valuenow='$row[status]' aria-valuemin='0' aria-valuemax='100'></div>
                                                 </div>
                                             </td>
+                                            <td>" . $row["estimatedHours"] . "</td>
                                             <td>" . $row["description"] . "</td>
                                             <td>" . $row["date"] . "</td>
                                             <td>
-                                                <a href=pomodoro.php class='info'><i class='material-icons' data-toggle='tooltip' title='Iniciar pomodoro'>&#xE037;</i></a>
+                                                <a href='pomodoro.php?id=$row[id]' class='info'><i class='material-icons' data-toggle='tooltip' title='Iniciar pomodoro'>&#xE037;</i></a>
                                                 <a href='#editEmployeeModal' class='edit' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title='Editar'>&#xE254;</i></a>
                                                 <a href='includes/delete.inc.php?id=$row[id]' class='delete'><i class='material-icons' data-toggle='tooltip' title='Eliminar'>&#xE872;</i></a>
                                             </td>
@@ -152,6 +155,10 @@
                             <div class="form-group">
                                 <label>Estatus</label>
                                 <input type="number" name="status" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Horas Estimadas</label>
+                                <input type="number" name="estimatedHours" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label>Descripcion</label>
