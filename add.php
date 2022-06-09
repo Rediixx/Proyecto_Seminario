@@ -102,6 +102,7 @@
                                             <td>" . $row["description"] . "</td>
                                             <td>" . $row["date"] . "</td>
                                             <td>
+                                                <a href=pomodoro.php class='info'><i class='material-icons' data-toggle='tooltip' title='Iniciar pomodoro'>&#xE037;</i></a>
                                                 <a href='#editEmployeeModal' class='edit' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title='Editar'>&#xE254;</i></a>
                                                 <a href='includes/delete.inc.php?id=$row[id]' class='delete'><i class='material-icons' data-toggle='tooltip' title='Eliminar'>&#xE872;</i></a>
                                             </td>
