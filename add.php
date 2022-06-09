@@ -184,8 +184,6 @@
                             return $(this).text();
                         }).get();
 
-                        console.log(data);
-
                         $('#update_id').val(data[0]);
                         $('#estimatedHours').val(data[3]);
                         $('#description').val(data[4]);
