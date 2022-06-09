@@ -2,7 +2,6 @@
 
 if (isset($_POST["submit"])) {
     $owner = $_POST["owner"];
-    $status = $_POST["status"];
     $description = $_POST["description"];
     $date = $_POST["date"];
     $estimatedHours = $_POST["estimatedHours"];
@@ -10,7 +9,7 @@ if (isset($_POST["submit"])) {
     require_once 'dbh.inc.php';
     require_once 'functions.inc.php';
 
-    createBug($conn, $owner, $status, $description, $date, $estimatedHours);
+    createBug($conn, $owner, $description, $date, $estimatedHours);
 }
 
 else {

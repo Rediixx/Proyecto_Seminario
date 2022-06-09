@@ -153,10 +153,6 @@
                                 <input type="text" value="<?php echo $_SESSION["username"]; ?>" name="owner" class="form-control" required readonly>
                             </div>
                             <div class="form-group">
-                                <label>Estatus</label>
-                                <input type="number" name="status" class="form-control" required>
-                            </div>
-                            <div class="form-group">
                                 <label>Horas Estimadas</label>
                                 <input type="number" name="estimatedHours" class="form-control" required>
                             </div>

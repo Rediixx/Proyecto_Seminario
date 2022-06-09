@@ -95,15 +95,15 @@ function createUser($conn, $name, $email, $username, $pwd) {
     header("location: ../signup.php?error=none");
 }
 
-function createBug($conn, $owner, $status, $description, $date, $estimatedHours) {
-    $sql = "INSERT INTO bugs (Owner, Status, Description, Date, EstimatedHours) VALUES (?, ?, ?, ?, ? * 3600);";
+function createBug($conn, $owner, $description, $date, $estimatedHours) {
+    $sql = "INSERT INTO bugs (Owner, Description, Date, EstimatedHours, InitialHours) VALUES (?, ?, ?, ? * 3600, EstimatedHours);";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../add.php?error=stmtfailed");
         exit();
     }
 
-    mysqli_stmt_bind_param($stmt, "sissi", $owner, $status, $description, $date, $estimatedHours);
+    mysqli_stmt_bind_param($stmt, "sssi", $owner, $description, $date, $estimatedHours);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     header("location: ../add.php?error=none");
@@ -160,6 +160,17 @@ function deleteRecord($conn, $id) {
 
 function updateHour($conn, $id, $estimatedHours) {
     $sql = "UPDATE bugs SET estimatedHours = estimatedHours - ? WHERE id = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../pomodoro.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "ii", $estimatedHours, $id);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    $sql = "UPDATE bugs SET status = (estimatedHours / initialHours) * 100 WHERE id = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../pomodoro.php?error=stmtfailed");
