@@ -170,14 +170,14 @@ function updateHour($conn, $id, $estimatedHours) {
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
-    $sql = "UPDATE bugs SET status = (estimatedHours / initialHours) * 100 WHERE id = ?;";
+    $sql = "UPDATE bugs SET status = ABS(((estimatedHours/initialHours) * 100) - 100) WHERE id = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../pomodoro.php?error=stmtfailed");
         exit();
     }
 
-    mysqli_stmt_bind_param($stmt, "ii", $estimatedHours, $id);
+    mysqli_stmt_bind_param($stmt, "i", $id);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 }
