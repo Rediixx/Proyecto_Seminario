@@ -134,7 +134,7 @@ function loginUser($conn, $username, $pwd) {
 }
 
 function deleteRecord($conn, $id) {
-    $sql = "INSERT INTO trash SELECT * FROM bugs WHERE id = ?;";
+    $sql = "INSERT INTO trash SELECT id, owner, status, description, date FROM bugs WHERE id = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../add.php?error=stmtfailed");
