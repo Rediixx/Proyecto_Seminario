@@ -21,7 +21,7 @@
             <div class="header">
                 <a class="logo">To-Do List</a>
                 <div class="header-right">
-                    <a class="active" href="yep.php">Home</a>
+                    <a class="active" href="add.php">Home</a>
                     <a href="#contact">Contact</a>
                     <a href="about.php">About</a>
                     <a class="red" href="includes/logout.inc.php">Logout</a>
