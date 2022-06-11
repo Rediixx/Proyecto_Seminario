@@ -128,7 +128,7 @@ function loginUser($conn, $username, $pwd) {
         session_start();
         $_SESSION["ID_user"] = $usernameExists["ID_user"];
         $_SESSION["username"] = $usernameExists["Username"];
-        header("location: ../yep.php");
+        header("location: ../add.php");
         exit();
     }
 }
