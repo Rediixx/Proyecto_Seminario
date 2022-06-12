@@ -21,7 +21,7 @@
                                 <div class="row justify-content-center">
                                     <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                                        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+                                        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Registro</p>
 
                                         <form class="mx-1 mx-md-4" action="includes/signup.inc.php" method="post">
 
@@ -29,7 +29,7 @@
                                                 <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                                 <div class="form-outline flex-fill mb-0">
                                                     <input type="text" name="name" id="form3Example1c" class="form-control" />
-                                                    <label class="form-label" for="form3Example1c">Your Name</label>
+                                                    <label class="form-label" for="form3Example1c">Su Nombre</label>
                                                 </div>
                                             </div>
 
@@ -37,7 +37,7 @@
                                                 <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                                 <div class="form-outline flex-fill mb-0">
                                                     <input type="text" name="username" id="form3Example1c" class="form-control" />
-                                                    <label class="form-label" for="form3Example1c">Your Username</label>
+                                                    <label class="form-label" for="form3Example1c">Su Nombre de Usuario</label>
                                                 </div>
                                             </div>
 
@@ -45,7 +45,7 @@
                                                 <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                                 <div class="form-outline flex-fill mb-0">
                                                     <input type="email" name="email" id="form3Example3c" class="form-control" />
-                                                    <label class="form-label" for="form3Example3c">Your Email</label>
+                                                    <label class="form-label" for="form3Example3c">Su Correo</label>
                                                 </div>
                                             </div>
 
@@ -53,7 +53,7 @@
                                                 <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                                 <div class="form-outline flex-fill mb-0">
                                                     <input type="password" name="pwd" id="form3Example4c" class="form-control" />
-                                                    <label class="form-label" for="form3Example4c">Password</label>
+                                                    <label class="form-label" for="form3Example4c">Su Contraseña</label>
                                                 </div>
                                             </div>
 
@@ -61,7 +61,7 @@
                                                 <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                                 <div class="form-outline flex-fill mb-0">
                                                     <input type="password" name="pwdrepeat" id="form3Example4cd" class="form-control" />
-                                                    <label class="form-label" for="form3Example4cd">Repeat your password</label>
+                                                    <label class="form-label" for="form3Example4cd">Repita su Contraseña</label>
                                                 </div>
                                             </div>
 
@@ -73,12 +73,12 @@
                                                 id="form2Example3c"
                                                 />
                                                 <label class="form-check-label" for="form2Example3">
-                                                I agree all statements in <a href="#!">Terms of service</a>
+                                                Acepto los <a href="#!">Terminos y Condiciones</a>
                                                 </label>
                                             </div>
 
                                             <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                                <button type="submit" name="submit" class="btn btn-primary btn-lg">Register</button>
+                                                <button type="submit" name="submit" class="btn btn-primary btn-lg">Registrarse</button>
                                             </div>
                                         </form>
                                     </div>

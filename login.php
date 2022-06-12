@@ -32,19 +32,19 @@
 
                                             <div class="d-flex align-items-center mb-3 pb-1">
                                                 <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
-                                                <span class="h1 fw-bold mb-0">Logo</span>
+                                                <span class="h1 fw-bold mb-0">Daylist</span>
                                             </div>
 
-                                            <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
+                                            <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Ingrese a su cuenta</h5>
 
                                             <div class="form-outline mb-4">
                                                 <input type="text" name="name" id="form2Example17" class="form-control form-control-lg" />
-                                                <label class="form-label" for="form2Example17">Email address or Username</label>
+                                                <label class="form-label" for="form2Example17">Nombre de Usuario</label>
                                             </div>
 
                                             <div class="form-outline mb-4">
                                                 <input type="password" name="pwd" id="form2Example27" class="form-control form-control-lg" />
-                                                <label class="form-label" for="form2Example27">Password</label>
+                                                <label class="form-label" for="form2Example27">Contraseña</label>
                                             </div>
 
                                             <div class="pt-1 mb-4">
@@ -75,9 +75,9 @@
                                             ?>
 
                                             <a class="small text-muted" href="#!">Forgot password?</a>
-                                            <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="signup.php" style="color: #393f81;">Register here</a></p>
-                                            <a href="#!" class="small text-muted">Terms of use.</a>
-                                            <a href="#!" class="small text-muted">Privacy policy</a>
+                                            <p class="mb-5 pb-lg-2" style="color: #393f81;">No tiene una cuenta? <a href="signup.php" style="color: #393f81;">Registrese aqui</a></p>
+                                            <a href="#!" class="small text-muted">Terminos de uso.</a>
+                                            <a href="#!" class="small text-muted">Politica de Privacidad</a>
                                         </form>
                                     </div>
                                 </div>
