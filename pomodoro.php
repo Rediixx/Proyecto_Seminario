@@ -37,9 +37,9 @@
     </div>
 
     <form action=".">
-      <label for="focusTime">Tiempo de Concentracion</label>
+      <label for="focusTime">Tiempo de Concentracion (Minutos)</label>
       <input type="number" value="1" id="focusTime" />
-      <label for="breakTime">Tiempo de Descanso</label>
+      <label for="breakTime">Tiempo de Descanso (Minutos)</label>
       <input type="number" value="1" id="breakTime" />
       <button type="submit">Guardar ajustes</button>
     </form>
