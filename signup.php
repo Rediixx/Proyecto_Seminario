@@ -25,6 +25,46 @@
 
                                         <form class="mx-1 mx-md-4" action="includes/signup.inc.php" method="post">
 
+                                        <?php
+                                            if (isset($_GET["error"])) {
+                                                if ($_GET["error"] == "emptyInput") {
+                                                    echo "<div class='alert alert-danger d-flex justify-content-center mb-5' role='alert'>
+                                                    Ingrese datos!
+                                                    </div>";
+                                                }
+                                                else if ($_GET["error"] == "invalidUsername") {
+                                                    echo "<div class='alert alert-danger' role='alert'>
+                                                    Ingrese un nombre de usuario valido!
+                                                    </div>";
+                                                }
+                                                else if ($_GET["error"] == "invalidEmail") {
+                                                    echo "<div class='alert alert-danger' role='alert'>
+                                                    Ingrese un email valido!
+                                                    </div>";
+                                                }
+                                                else if ($_GET["error"] == "pwdDontMatch") {
+                                                    echo "<div class='alert alert-danger' role='alert'>
+                                                    Las contraseñas no son iguales!
+                                                    </div>";
+                                                }
+                                                else if ($_GET["error"] == "usernameTaken") {
+                                                    echo "<div class='alert alert-danger' role='alert'>
+                                                    El nombre de usuario ya existe!
+                                                    </div>";
+                                                }
+                                                else if ($_GET["error"] == "stmtfailed") {
+                                                    echo "<div class='alert alert-danger' role='alert'>
+                                                    Algo salio mal!
+                                                    </div>";
+                                                }
+                                                else if ($_GET["error"] == "none") {
+                                                    echo "<div class='alert alert-success' role='alert'>
+                                                    Estas registrado!
+                                                    </div>";
+                                                }
+                                            }
+                                        ?>
+
                                             <div class="d-flex flex-row align-items-center mb-4">
                                                 <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                                 <div class="form-outline flex-fill mb-0">
@@ -75,45 +115,6 @@
                                         <img src="img/register2.png" class="img-fluid" alt="Sample image">
                                     </div>
                                 </div>
-                                <?php
-                                    if (isset($_GET["error"])) {
-                                        if ($_GET["error"] == "emptyInput") {
-                                            echo "<div class='alert alert-danger d-flex justify-content-center mb-5' role='alert'>
-                                            Ingrese datos!
-                                            </div>";
-                                        }
-                                        else if ($_GET["error"] == "invalidUsername") {
-                                            echo "<div class='alert alert-danger' role='alert'>
-                                            Ingrese un nombre de usuario valido!
-                                            </div>";
-                                        }
-                                        else if ($_GET["error"] == "invalidEmail") {
-                                            echo "<div class='alert alert-danger' role='alert'>
-                                            Ingrese un email valido!
-                                            </div>";
-                                        }
-                                        else if ($_GET["error"] == "pwdDontMatch") {
-                                            echo "<div class='alert alert-danger' role='alert'>
-                                            Las contraseñas no son iguales!
-                                            </div>";
-                                        }
-                                        else if ($_GET["error"] == "usernameTaken") {
-                                            echo "<div class='alert alert-danger' role='alert'>
-                                            El nombre de usuario ya existe!
-                                            </div>";
-                                        }
-                                        else if ($_GET["error"] == "stmtfailed") {
-                                            echo "<div class='alert alert-danger' role='alert'>
-                                            Algo salio mal!
-                                            </div>";
-                                        }
-                                        else if ($_GET["error"] == "none") {
-                                            echo "<div class='alert alert-success' role='alert'>
-                                            Estas registrado!
-                                            </div>";
-                                        }
-                                    }
-                                ?>
                             </div>
                         </div>
                     </div>
