@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
   <body>
-    <h1>Pomodro ⏲ con 🛎</h1>
+    <h1>Pomodoro ⏲ con 🛎</h1>
 
     <figure class="clock">
       <div class="mins">0</div>
