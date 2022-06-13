@@ -65,18 +65,6 @@
                                                 </div>
                                             </div>
 
-                                            <div class="form-check d-flex justify-content-center mb-5">
-                                                <input
-                                                class="form-check-input me-2"
-                                                type="checkbox"
-                                                value=""
-                                                id="form2Example3c"
-                                                />
-                                                <label class="form-check-label" for="form2Example3">
-                                                Acepto los <a href="#!">Terminos y Condiciones</a>
-                                                </label>
-                                            </div>
-
                                             <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                                                 <button type="submit" name="submit" class="btn btn-primary btn-lg">Registrarse</button>
                                             </div>
