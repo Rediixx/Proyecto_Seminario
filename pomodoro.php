@@ -41,6 +41,29 @@
       <input type="number" value="1" id="focusTime" />
       <label for="breakTime">Tiempo de Descanso (Minutos)</label>
       <input type="number" value="1" id="breakTime" />
+      <?php
+        $serverName = "localhost";
+        $dBUsername = "root";
+        $dBPassword = "";
+        $dBName = "bugtracker";
+        $conn = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+
+        $id = $_GET['id'];
+        $sql = "SELECT estimatedHours FROM bugs WHERE id = $id";
+        $result = $conn->query($sql);
+
+        if (!$result) {
+            die("Invalid query : " . $conn->error);
+        }
+
+        while ($row = $result->fetch_assoc()) {
+            echo "<p>Tiempo restante: " . $row['estimatedHours'] / 60 . " minutos</p>";
+        }
+      ?>
+      <p style="margin-top: 5px;">Tiempo en sesion: </p>
       <button type="submit">Guardar ajustes</button>
     </form>
 
