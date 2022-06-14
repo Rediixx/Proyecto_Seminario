@@ -63,7 +63,7 @@
             echo "<p>Tiempo restante: " . $row['estimatedHours'] / 60 . " minutos</p>";
         }
       ?>
-      <p style="margin-top: 5px;">Tiempo en sesion: </p>
+      <div class="sessionTime" style="margin-top: 5px;">Tiempo en sesion: 0:00</div>
       <button type="submit">Guardar ajustes</button>
     </form>
 

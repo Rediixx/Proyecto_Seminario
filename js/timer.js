@@ -7,7 +7,12 @@ const secdiv = document.querySelector(".secs");
 const startBtn = document.querySelector(".start");
 localStorage.setItem("btn", "focus");
 
-let initial, totalsecs, perc, paused, mins, seconds;
+const sessionTime = document.querySelector(".sessionTime");
+
+let initial, totalsecs, perc, paused, mins, seconds, counter1, counter2;
+
+counter1 = 0;
+counter2 = 0;
 
 startBtn.addEventListener("click", () => {
 
@@ -31,6 +36,8 @@ function decremenT() {
 
   mindiv.textContent = Math.floor(seconds / 60);
   secdiv.textContent = seconds % 60 > 9 ? seconds % 60 : `0${seconds % 60}`;
+  sessionTime.textContent = "Tiempo en sesion: " +counter2 +":" +String(counter1).padStart(2, '0');
+  
   if (circle.classList.contains("danger")) {
     circle.classList.remove("danger");
   }
@@ -39,6 +46,11 @@ function decremenT() {
     perc = Math.ceil(((totalsecs - seconds) / totalsecs) * 100);
     setProgress(perc);
     seconds--;
+    counter1++;
+    if (counter1 == 60) {
+      counter1 = 0;
+      counter2++;
+    }
     initial = window.setTimeout("decremenT()", 1000);
     if (seconds < 10) {
       circle.classList.add("danger");
