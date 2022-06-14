@@ -8,11 +8,13 @@ const startBtn = document.querySelector(".start");
 localStorage.setItem("btn", "focus");
 
 const sessionTime = document.querySelector(".sessionTime");
+const timeLeft = document.querySelector(".timeLeft");
 
-let initial, totalsecs, perc, paused, mins, seconds, counter1, counter2;
+let initial, totalsecs, perc, paused, mins, seconds, counter1, counter2, timeLeftNumber;
 
 counter1 = 0;
 counter2 = 0;
+timeLeftNumber = parseInt(document.querySelector(".timeLeft").innerText.replace(/\D/g, ""));
 
 startBtn.addEventListener("click", () => {
 
@@ -37,6 +39,7 @@ function decremenT() {
   mindiv.textContent = Math.floor(seconds / 60);
   secdiv.textContent = seconds % 60 > 9 ? seconds % 60 : `0${seconds % 60}`;
   sessionTime.textContent = "Tiempo en sesion: " +counter2 +":" +String(counter1).padStart(2, '0');
+  timeLeft.textContent = "Tiempo restante: " +timeLeftNumber +" minutos";
   
   if (circle.classList.contains("danger")) {
     circle.classList.remove("danger");
@@ -50,6 +53,7 @@ function decremenT() {
     if (counter1 == 60) {
       counter1 = 0;
       counter2++;
+      timeLeftNumber--;
     }
     initial = window.setTimeout("decremenT()", 1000);
     if (seconds < 10) {
