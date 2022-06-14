@@ -50,13 +50,13 @@
                     <div class="table-title">
                         <div class="row">
                             <div class="col-sm-6">
-                                <h2>Lista Actividades <b>Eliminadas</b></h2>
+                                <h2>Lista Actividades <b>Completadas</b></h2>
                             </div>
                             <div class="col-sm-6">
                                 <!--<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Agregar Actividad</span></a>
                                 <a href=pomodoro.php class="btn btn-warning" style= color:black;><i class="material-icons">&#xE037;</i><span>Iniciar pomodoro</span></a>-->
                                 <a href=add.php class="btn btn-info" style= color:black;><i class="material-icons">&#xE863;</i><span>En curso</span></a>
-                                <a href=completed.php class="btn btn-warning" style= color:black;><i class="material-icons">&#xE5CA;</i><span>Finalizados</span></a>						
+                                <a href=trash.php class="btn btn-danger" style= color:black;><i class="material-icons">&#xE872;</i><span>Eliminados</span></a>					
                             </div>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                         <?php
                             require_once 'includes/dbh.inc.php';
 
-                            $sql = "SELECT * FROM trash";
+                            $sql = "SELECT * FROM completed";
                             $result = $conn->query($sql);
 
                             if (!$result) {

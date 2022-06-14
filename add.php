@@ -54,7 +54,8 @@
                             </div>
                             <div class="col-sm-6">
                                 <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Agregar Actividad</span></a>
-                                <a href=trash.php class="btn btn-info" style= color:black;><i class="material-icons">&#xE5CA;</i><span>Completados</span></a>						
+                                <a href=trash.php class="btn btn-danger" style= color:black;><i class="material-icons">&#xE872;</i><span>Eliminados</span></a>
+                                <a href=completed.php class="btn btn-warning" style= color:black;><i class="material-icons">&#xE5CA;</i><span>Finalizados</span></a>			
                             </div>
                         </div>
                     </div>
@@ -72,14 +73,7 @@
 
                         <tbody>
                         <?php
-                            $serverName = "localhost";
-                            $dBUsername = "root";
-                            $dBPassword = "";
-                            $dBName = "bugtracker";
-                            $conn = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);
-                            if (!$conn) {
-                                die("Connection failed: " . mysqli_connect_error());
-                            }
+                            require_once 'includes/dbh.inc.php';
 
                             $sql = "SELECT * FROM bugs";
                             $result = $conn->query($sql);
