@@ -207,3 +207,38 @@ function updateBug($conn, $id, $estimatedHours, $description, $date) {
 
     header("location: ../add.php?error=none");
 }
+
+function checkStatus($conn, $id) {
+    $sql = "SELECT * FROM bugs WHERE id = $id";
+    $result = $conn->query($sql);
+
+    if (!$result) {
+        die("Invalid query : " . $conn->error);
+    }
+
+    while ($row = $result->fetch_assoc()) {
+        if($row['status'] == 100) {
+            $sql = "INSERT INTO completed SELECT id, owner, status, description, date FROM bugs WHERE id = ?;";
+            $stmt = mysqli_stmt_init($conn);
+            if (!mysqli_stmt_prepare($stmt, $sql)) {
+                header("location: ../add.php?error=stmtfailed");
+                exit();
+            }
+
+            mysqli_stmt_bind_param($stmt, "i", $id);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
+
+            $sql = "DELETE FROM bugs WHERE id = ?;";
+            $stmt = mysqli_stmt_init($conn);
+            if (!mysqli_stmt_prepare($stmt, $sql)) {
+                header("location: ../add.php?error=stmtfailed");
+                exit();
+            }
+
+            mysqli_stmt_bind_param($stmt, "i", $id);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
+        }
+    }
+}

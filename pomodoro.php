@@ -33,7 +33,7 @@
       <button class="start">Comenzar</button>
       <button class="reset">Reiniciar</button>
       <button class="pause">Pausar</button>
-      <button class="return" onclick="window.location.href='add.php';">Regresar</button>
+      <button class="return" onclick="document.location.href='add.php';">Regresar</button>
     </div>
 
     <form action=".">
@@ -69,20 +69,35 @@
       var id = url.substring(url.lastIndexOf('=') + 1);
 
       const startBtn2 = document.querySelector(".start");
+      const backBtn = document.querySelector(".return");
 
       startBtn2.addEventListener("click", () => {
         var estimatedHours = localStorage.getItem("focusTime") * 60;
         UpdateRecord(id, estimatedHours);
       });
 
-      function UpdateRecord(id, estimatedHours)
-      {
+      backBtn.addEventListener("click", () => {
+        CheckStatus(id);
+      });
+
+      function UpdateRecord(id, estimatedHours) {
           jQuery.ajax({
           type: "POST",
           url: "includes/updateTime.php",
           data: {
             id: id,
             estimatedHours: estimatedHours
+          },
+          cache: false,
+        });
+      }
+
+      function CheckStatus(id) {
+          jQuery.ajax({
+          type: "POST",
+          url: "includes/checkStatus.php",
+          data: {
+            id: id
           },
           cache: false,
         });
