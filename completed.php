@@ -96,7 +96,7 @@
                                             <td>" . $row["description"] . "</td>
                                             <td>" . $row["date"] . "</td>
                                             <td style='text-align: center;'>
-                                                <a href='includes/delete.inc.php?id=$row[id]' class='delete'><i class='material-icons' data-toggle='tooltip' title='Eliminar'>&#xE872;</i></a>
+                                                <a href='includes/deleteCompleted.inc.php?id=$row[id]' class='delete'><i class='material-icons' data-toggle='tooltip' title='Eliminar'>&#xE872;</i></a>
                                             </td>
                                         </tr>";
                                 } else {
@@ -113,7 +113,7 @@
                                             <td>" . $row["description"] . "</td>
                                             <td>" . $row["date"] . "</td>
                                             <td style='text-align: center;'>
-                                                <a href='includes/delete.inc.php?id=$row[id]' class='delete'><i class='material-icons' data-toggle='tooltip' title='Eliminar'>&#xE872;</i></a>
+                                                <a href='includes/deleteCompleted.inc.php?id=$row[id]' class='delete'><i class='material-icons' data-toggle='tooltip' title='Eliminar'>&#xE872;</i></a>
                                             </td>
                                         </tr>";
                                     }

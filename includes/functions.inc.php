@@ -242,3 +242,31 @@ function checkStatus($conn, $id) {
         }
     }
 }
+
+function deleteRecordTrash($conn, $id) {
+    $sql = "DELETE FROM trash WHERE id = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../add.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "i", $id);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: ../trash.php?error=none");
+}
+
+function deleteRecordCompleted($conn, $id) {
+    $sql = "DELETE FROM completed WHERE id = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../add.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "i", $id);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: ../completed.php?error=none");
+}
