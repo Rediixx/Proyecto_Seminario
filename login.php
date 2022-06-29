@@ -74,10 +74,7 @@
                                                 }
                                             ?>
 
-                                            <a class="small text-muted" href="#!">Forgot password?</a>
                                             <p class="mb-5 pb-lg-2" style="color: #393f81;">No tiene una cuenta? <a href="signup.php" style="color: #393f81;">Registrese aqui</a></p>
-                                            <a href="#!" class="small text-muted">Terminos de uso.</a>
-                                            <a href="#!" class="small text-muted">Politica de Privacidad</a>
                                         </form>
                                     </div>
                                 </div>
